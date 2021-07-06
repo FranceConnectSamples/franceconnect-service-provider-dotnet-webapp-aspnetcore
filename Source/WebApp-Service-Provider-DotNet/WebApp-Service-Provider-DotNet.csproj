@@ -3,9 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
-    <AssemblyName>WebApp-Service-Provider-DotNet</AssemblyName>
-    <OutputType>Exe</OutputType>
-    <PackageId>WebApp-Service-Provider-DotNet</PackageId>
+    <AssemblyName>WebApp-Service-Provider</AssemblyName>
+    <PackageId>WebApp-Service-Provider</PackageId>
     <UserSecretsId>aspnet-WebApp_Service_Provider_DotNet-83512670-8c0d-4168-be43-1cf3f98de941</UserSecretsId>
   </PropertyGroup>
 

@@ -36,6 +36,5 @@
     <Exec Command="gulp clean" />
     <Exec Command="gulp min" />
   </Target>
-  </ItemGroup>
 
 </Project>

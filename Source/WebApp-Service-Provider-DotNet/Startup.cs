@@ -74,6 +74,12 @@ namespace WebApp_Service_Provider_DotNet
 
             // Add configuration
             services.AddOptions();
+
+            //Since chromium updates to SameSite cookie policies, this must be used for the authentication cookies to avoid a Correlation error without HTTPS
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.MinimumSameSitePolicy = SameSiteMode.Lax;
+            });
             services.Configure<FranceConnectConfiguration>(Configuration.GetSection("FranceConnect"));
             var franceConnectConfig = Configuration.GetSection("FranceConnect").Get<FranceConnectConfiguration>();
 
@@ -83,7 +89,6 @@ namespace WebApp_Service_Provider_DotNet
                     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = Scheme.FranceConnect;
                 })
-                .AddCookie()
                 .AddOpenIdConnect(Scheme.FranceConnect, Scheme.FranceConnectDisplayName, options => ConfigureFranceConnect(options, franceConnectConfig));
 
             services.AddControllersWithViews();
@@ -107,6 +112,8 @@ namespace WebApp_Service_Provider_DotNet
             }
 
             app.UseRequestLocalization(new RequestLocalizationOptions { DefaultRequestCulture = new RequestCulture("fr-FR") });
+
+            app.UseCookiePolicy();
 
             app.UseStaticFiles();
 

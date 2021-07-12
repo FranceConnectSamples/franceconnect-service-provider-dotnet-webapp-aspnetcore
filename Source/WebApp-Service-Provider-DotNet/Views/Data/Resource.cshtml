@@ -7,10 +7,10 @@
 <h2>@ViewData["Title"].</h2>
 <p class="text-warning">@ViewData["Message"]</p>
 @if (Model is DgfipResourceViewModel)
-{
-    @Html.Partial("_DgfipResourcePartial", Model);
+{    
+    <partial name="_DgfipResourcePartial" model="Model"/>
 }
 else if (Model is CustomResourceViewModel)
 {
-    @Html.Partial("_CustomResourcePartial", Model);
+    <partial name="_CustomResourcePartial" model="Model"/>
 }

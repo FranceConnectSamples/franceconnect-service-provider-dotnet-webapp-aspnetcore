@@ -120,7 +120,8 @@ namespace WebApp_Service_Provider_DotNet
 
             oidc_options.ClientId = fcConfig.ClientId;
             oidc_options.ClientSecret = fcConfig.ClientSecret;
-
+            oidc_options.CallbackPath = fcConfig.CallbackPath;
+            oidc_options.SignedOutCallbackPath = fcConfig.SignedOutCallbackPath;
             oidc_options.Authority = fcConfig.Issuer;
             oidc_options.ResponseType = OpenIdConnectResponseType.Code;
             oidc_options.Scope.Clear();

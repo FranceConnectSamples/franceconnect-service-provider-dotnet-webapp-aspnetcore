@@ -128,6 +128,9 @@ namespace WebApp_Service_Provider_DotNet
             //FC refuses unknown parameters in the requests, so the two following options are needed 
             oidc_options.DisableTelemetry = true; //This is false by default on .NET Core 3.1, and sends additional parameters such as "x-client-ver" in the requests to FC.
             oidc_options.UsePkce = false; //This is true by default on .NET Core 3.1, and sends additional parameters such as "code_challenge" in the requests to FC.
+
+            oidc_options.SaveTokens = true;//This is needed to keep the id_token obtained for authentication : we have to send it back to FC to logout.
+
             oidc_options.ClientId = fcConfig.ClientId;
             oidc_options.ClientSecret = fcConfig.ClientSecret;
             oidc_options.CallbackPath = fcConfig.CallbackPath;

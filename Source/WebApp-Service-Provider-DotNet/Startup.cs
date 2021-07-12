@@ -57,6 +57,13 @@ namespace WebApp_Service_Provider_DotNet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            if (string.IsNullOrEmpty(Configuration["FranceConnect:ClientSecret"]))
+            {
+                throw new InvalidOperationException("FC Client Secret not found. It must be added to the configuration, through User Secrets for example.");
+                // User-Secrets documentation : https://docs.asp.net/en/latest/security/app-secrets.html
+            }
+
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

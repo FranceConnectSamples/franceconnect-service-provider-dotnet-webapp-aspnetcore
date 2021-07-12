@@ -109,6 +109,8 @@ namespace WebApp_Service_Provider_DotNet
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+                app.UseHttpsRedirection();
             }
 
             app.UseRequestLocalization(new RequestLocalizationOptions { DefaultRequestCulture = new RequestCulture("fr-FR") });

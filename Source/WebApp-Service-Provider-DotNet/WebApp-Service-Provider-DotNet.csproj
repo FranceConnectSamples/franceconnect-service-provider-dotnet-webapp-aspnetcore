@@ -24,22 +24,23 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.16" />
 		
 		<PackageReference Include="IdentityModel" Version="2.0.0" />
-		<PackageReference Include="BundlerMinifier.Core" Version="3.2.449" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" PrivateAssets="All" />
 	</ItemGroup>
 	
 
   <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+    <Exec Command="dotnet tool restore" />
+    <Exec Command="dotnet libman restore" />
     <Exec Command="npm install" />
-    <Exec Command="bower install" />
-    <Exec Command="dotnet bundle" />
     <Exec Command="gulp clean" />
     <Exec Command="gulp min" />
   </Target>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="BundlerMinifier.Core" Version="3.2.449" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

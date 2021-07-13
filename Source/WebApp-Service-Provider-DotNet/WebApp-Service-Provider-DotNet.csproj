@@ -6,6 +6,7 @@
     <AssemblyName>WebApp-Service-Provider</AssemblyName>
     <PackageId>WebApp-Service-Provider</PackageId>
     <UserSecretsId>aspnet-WebApp_Service_Provider_DotNet-83512670-8c0d-4168-be43-1cf3f98de941</UserSecretsId>
+	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
   </PropertyGroup>
 
   <ItemGroup>
